@@ -1,4 +1,5 @@
 let page="hello"
+let input_text=""
 
 function start(the_page){
     if(page=="hello"){
@@ -7,6 +8,13 @@ function start(the_page){
     })
     mydiv.inline_style({
         "color":"red"
+    })
+    the_page.input({
+        placeholder:"Type something",
+        value:input_text,
+        render_focusout:(input)=>{
+            input_text = input.value
+        }
     })
    let mybutton=the_page.button(()=>{
     the_page.p("Goodbye")
